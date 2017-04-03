@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "pixi.js": "^4.3.4",
-    "remove": "^0.1.5"
+    "remove": "^0.1.5",
+    "webpack": "^2.3.3"
   },
   "devDependencies": {
     "@types/pixi.js": "^4.3.1",

@@ -58,8 +58,7 @@ export class FireworksPage extends Page {
         launchVector: new Vector(75 - Math.random() * 150, -320 + Math.random() * 20)
       }
     };
-    // let pattern = CST.PATTERNS[Math.floor(Math.random()* (CST.PATTERNS.length))];
-    let pattern =  'galaxy';
+    let pattern = CST.PATTERNS[Math.floor(Math.random()* (CST.PATTERNS.length))];
     globals.elements.push(new Firework(this.stage, defaults[pattern]));
     globals.elements[globals.elements.length - 1].launch();
   }
