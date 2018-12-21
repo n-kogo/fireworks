@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
-export class Circle extends PIXI.Container{
-  constructor(p){
+export class Circle extends PIXI.Container {
+  constructor(p) {
     p = p || {};
     super();
     this.p = {
@@ -13,7 +13,7 @@ export class Circle extends PIXI.Container{
     this.circle = new PIXI.Graphics();
     this.addChild(this.circle);
     this.circle.beginFill(this.p.color)
-      .drawCircle(0,0, this.p.radius)
+      .drawCircle(0, 0, this.p.radius)
       .endFill();
     this.x = this.p.x;
     this.y = this.p.y;

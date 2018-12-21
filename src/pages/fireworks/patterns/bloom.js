@@ -7,12 +7,13 @@ export class Bloom extends Pattern{
   constructor(){
     super();
   }
-  generate(p, parent){
-    super.generate(p, parent);
+  generate(params, parent){
+    if (!params) params = {};
+    super.generate(params, parent);
 
     var opt = {
-      force: p.force || 750,
-      nb: p.nb || 190 + Math.random() * 100
+      force: params.force || 750,
+      nb: params.nb || 190 + Math.random() * 100
       // nb: 1
     };
     for(let i =0; i < opt.nb; i++){
@@ -21,11 +22,13 @@ export class Bloom extends Pattern{
         angle : Math.random() * Math.PI * 2
         // angle: Math.PI * (i + 1) / 2
       });
+      console.log(v);
       let p = new Particle(parent.stage, {
         x: parent.container.x,
         y: parent.container.y,
-        color: parent.p.colors[Math.floor(Math.random() * parent.p.colors.length)],
-        launchVector: v
+        color: params.colors[Math.floor(Math.random() * params.colors.length)],
+        launchVector: v,
+        shape: params.shape
       });
       globals.elements.push(p);
     }

@@ -4,6 +4,7 @@
   "description": "Pixi js experimentation for hens",
   "main": "index.js",
   "dependencies": {
+    "onchange": "^5.0.2",
     "pixi.js": "^4.3.4",
     "remove": "^0.1.5",
     "webpack": "^2.3.3"
@@ -16,7 +17,11 @@
     "webpack": "^2.2.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "compile": "webpack",
+    "release": "npm run compile && cp ./dist/bundle.js ../hens-world/dist/js/fireworks.js",
+    "release_old": "npm run compile && cp ./dist/bundle.js C:/nginx-1.15.3/html/dist/js/fireworks.js",
+    "dev_old":"onchange \"./src/**/*.js\" -- npm run release_old "
   },
   "author": "",
   "license": "ISC"

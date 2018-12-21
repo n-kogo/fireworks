@@ -10,11 +10,15 @@ export class Unit {
     this.lifeTime = 0;
     this.id = id++;
     this.stage = stage;
+    this.physics = {
+      gravity: true
+    };
     this.x = p.x || 0;
     this.y = p.y || 0;
     this.container = new PIXI.Container();
     this.v = new Vector();
-    this.container = new PIXI.Container();
+    this.setX(this.x);
+    this.setY(this.y);
   }
   applyVector(vector, delta){
     this.v.join(vector);
@@ -33,6 +37,9 @@ export class Unit {
   setPos(pos){
     this.setX(pos.x);
     this.setY(pos.y);
+  }
+  update(){
+
   }
   destroy(){
     let idx = globals.elements.findIndex((elt)=>{
