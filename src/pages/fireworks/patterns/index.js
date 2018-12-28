@@ -1,10 +1,12 @@
 import {Bloom} from "./bloom";
 import {Cluster} from "./cluster";
 import {Galaxy} from "./galaxy";
+import {Shotgun} from "./shotgun";
 
 let bloom = new Bloom();
 let cluster = new Cluster();
 let galaxy = new Galaxy();
+let shotgun = new Shotgun();
 export function activatePattern(pattern, parent, p){
   p = p || {};
   switch (pattern){
@@ -17,5 +19,9 @@ export function activatePattern(pattern, parent, p){
     case 'galaxy':
       galaxy.generate(p, parent);
       break;
+    case 'shotgun':
+      shotgun.generate(p, parent);
+      break;
+
   }
 }

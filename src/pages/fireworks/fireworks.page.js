@@ -21,10 +21,11 @@ export class FireworksPage extends Page {
         pattern: 'bloom',
         particleNb: 200,
         particleForce: 730,
-        radius: 6,
+        radius: 4.5,
         lifeSpan: 2.3,
         color: 0xFFFFFF,
-        shape: 'circle'
+        shape: 'circle',
+        number: 1
       },
       'cluster': {
         pattern: 'cluster',
@@ -33,7 +34,8 @@ export class FireworksPage extends Page {
         color: 0xFF6611,
         radius: 8,
         lifeSpan: 3.8,
-        shape: 'circle'
+        shape: 'circle',
+        number: 1
       },
       'galaxy': {
         pattern: 'galaxy',
@@ -41,9 +43,17 @@ export class FireworksPage extends Page {
         particleForce: 800,
         color: 0x2288FF,
         colors: [0xFFFF00, 0x0011FF],
-        radius: 7,
+        radius: 5,
         shape: 'circle',
         lifeSpan: 3.1,
+        number: 1
+      },
+      'shotgun': {
+        pattern: 'shotgun',
+        radius: 3,
+        shape: 'circle',
+        number: 8,
+        lifeSpan: 1.6
       }
     };
     // document.onclick = (e)=>{
@@ -81,17 +91,17 @@ export class FireworksPage extends Page {
     if (options.colors) params.colors = rgbArrayToHex(options.colors);
     params.x = options.x ? options.x : globals.width / 4 + Math.random() * globals.width / 2;
     params.y = options.y ? options.y : globals.height / 1.05 - 80;
-    globals.elements.push(new Firework(this.stage, params));
-    globals.elements[globals.elements.length - 1].launch();
+    for(let i = 0; i < params.number; i++){
+      globals.elements.push(new Firework(this.stage, params));
+      globals.elements[globals.elements.length - 1].launch();
+    }
     if(options.user){
-      console.log('launching with user ?: ', options.user, options);
       this.addLauncher(options.user, params.x, params.y);
     }
   }
   addLauncher(user, x, y) {
     let existingLauncherIndex = globals.elements.findIndex(element=> element.p.ID === user.ID);
     if (existingLauncherIndex >= 0) {
-      console.log('destroying previous launcher');
       globals.elements[existingLauncherIndex].destroy();
     }
     let p = {

@@ -22,10 +22,6 @@ export class Galaxy extends Pattern{
           angle: seed
         });
         v.y *= .5 +  .5 * Math.sin(v.angle + Math.PI);
-        if(v.angle > 0){
-          console.log(.5 +  .5 * Math.sin(v.angle + Math.PI).toFixed(2), (v.angle/ Math.PI).toFixed(2) + 'PI');
-          console.log(v.y);
-        }
         // v.x *= .5 +  .5 * Math.cos(v.angle + circleAngle);
         let p = new Particle(parent.stage, {
           x: parent.container.x,

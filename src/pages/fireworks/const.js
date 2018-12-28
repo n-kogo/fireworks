@@ -1,4 +1,4 @@
 export const CST = {
-  PATTERNS: ['bloom', 'cluster'],
+  PATTERNS: ['bloom', 'cluster', 'shotgun'],
   SHAPES: ['square', 'triangle', 'circle']
 };

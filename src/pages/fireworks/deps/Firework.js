@@ -13,7 +13,7 @@ export class Firework extends Unit {
     this.lifeTime = 0;
     this.p = {
       colors: p.colors || [0xFFAA33, 0xFF55FF, 0xFC7733],
-      lifeSpan: p.lifeSpan || 3 + Math.random(),
+      lifeSpan: p.lifeSpan ? p.lifeSpan +  -.15 * p.lifeSpan + Math.random() * .3 * p.lifeSpan : 3 + Math.random(),
       isLaunched: false,
       radius: p.radius || 8,
       x: p.x || globals.width / 2,

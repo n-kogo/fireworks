@@ -23,7 +23,6 @@ export class Launcher extends Unit {
       this.container.addChild(this.body);
       this.container.addChild(this.name);
       this.stage.addChild(this.container);
-      console.log('new launcher', p);
     }
 
     update(deltaFrame){
