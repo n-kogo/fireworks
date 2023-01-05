@@ -1,10 +1,10 @@
-import {Page} from "../../class/Page";
-import {Firework} from "./deps/Firework";
-import {Vector} from "./deps/Vector";
-import {globals} from "../../globals";
-import {CST} from "./const";
-import {copyObject, rgbArrayToHex} from "../../helpers/util";
-import {Launcher} from "./deps/Launcher";
+import { Page } from "../../class/Page";
+import { Firework } from "./deps/Firework";
+import { Vector } from "./deps/Vector";
+import { globals } from "../../globals";
+import { CST } from "./const";
+import { copyObject, rgbArrayToHex } from "../../helpers/util";
+import { Launcher } from "./deps/Launcher";
 
 export const villageColors = [[232, 132, 0], [17, 171, 166], [159, 167, 10], [227, 55, 13]];
 export const villages = ['sulimo', 'ulmo', 'wilwar', 'anar'];
@@ -91,22 +91,22 @@ export class FireworksPage extends Page {
     if (options.colors) params.colors = rgbArrayToHex(options.colors);
     params.x = options.x ? options.x : globals.width / 4 + Math.random() * globals.width / 2;
     params.y = options.y ? options.y : globals.height / 1.05 - 80;
-    for(let i = 0; i < params.number; i++){
+    for (let i = 0; i < params.number; i++) {
       globals.elements.push(new Firework(this.stage, params));
       globals.elements[globals.elements.length - 1].launch();
     }
-    if(options.user){
+    if (options.user) {
       this.addLauncher(options.user, params.x, params.y);
     }
   }
   addLauncher(user, x, y) {
-    let existingLauncherIndex = globals.elements.findIndex(element=> element.p.ID === user.ID);
+    let existingLauncherIndex = globals.elements.findIndex(element => element.p.ID === user.ID);
     if (existingLauncherIndex >= 0) {
       globals.elements[existingLauncherIndex].destroy();
     }
     let p = {
       color: rgbArrayToHex(villageColors[villages.indexOf(user.village)]),
-      village: user.village,
+      village: user.village.meta_value,
       name: user.display_name,
       x: x,
       ID: user.ID,

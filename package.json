@@ -6,22 +6,22 @@
   "dependencies": {
     "onchange": "^5.0.2",
     "pixi.js": "^4.3.4",
-    "remove": "^0.1.5",
-    "webpack": "^2.3.3"
+    "remove": "^0.1.5"
   },
   "devDependencies": {
     "@types/pixi.js": "^4.3.1",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
-    "webpack": "^2.2.1"
+    "webpack": "^2.1.0",
+    "webpack-dev-server": "^2.11.5"
   },
   "scripts": {
     "dev": "webpack-dev-server",
     "compile": "webpack",
     "release": "npm run compile && cp ./dist/bundle.js ../hens-world/dist/js/fireworks.js",
     "release_old": "npm run compile && cp ./dist/bundle.js C:/nginx-1.15.3/html/dist/js/fireworks.js",
-    "dev_old":"onchange \"./src/**/*.js\" -- npm run release_old "
+    "dev_old": "onchange \"./src/**/*.js\" -- npm run release_old "
   },
   "author": "",
   "license": "ISC"
