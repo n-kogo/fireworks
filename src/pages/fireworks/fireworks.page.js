@@ -105,7 +105,7 @@ export class FireworksPage extends Page {
       globals.elements[existingLauncherIndex].destroy();
     }
     let p = {
-      color: rgbArrayToHex(villageColors[villages.indexOf(user.village)]),
+      color: rgbArrayToHex(villageColors[villages.indexOf(user.village.meta_value)]),
       village: user.village.meta_value,
       name: user.display_name,
       x: x,
